@@ -8,7 +8,15 @@
 </head>
 
 <body>
-    <div class="container mt-2">
+<div class="header">
+        @include('layouts.topheader')
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        @include('layouts.sidebar')
+    </div>
+    <div class="container mt-1" style="max-width: 800px;">
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left mb-2">
@@ -17,15 +25,7 @@
             </div>
         </div>
 
-        @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
 
         <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

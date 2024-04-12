@@ -17,6 +17,7 @@ use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\DoubtController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PaymentController;
 
 
 /*
@@ -33,6 +34,9 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 Route::get('/about', function () {
     return view('about');
 })->name('about');
@@ -69,8 +73,10 @@ Route::resource('client',ClientController::class);
 Route::get('/all-packages', [TripController::class, 'allpackage'])->name('allpackage');
 Route::get('/all-blogs', [BlogController::class, 'allblog'])->name('allblog');
 Route::resource('bookings', BookingController::class);
-
-
+Route::post('/payment', [PaymentController::class, 'call'])->name('payment');
+Route::get('/payment-form', function () {
+    return view('payment.payment');
+});
 
 
 

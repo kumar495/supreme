@@ -14,6 +14,7 @@
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
                 <h3 class="display-4 text-white text-uppercase">Trip Detail</h3>
+
                 <div class="d-inline-flex text-white">
                     <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
                     <i class="fa fa-angle-double-right pt-1 px-3"></i>
@@ -25,6 +26,10 @@
     <!-- Header End -->
 
     @include('booking')
+    <div id="fixedTab" class="fixed-tab">
+    <a href="#" class="btn btn-primary btn-custom">Details of Trip</a>
+</div>
+
 
     <center>
     <h3>@php
@@ -74,21 +79,45 @@
                             </div>
                             <h2 class="mb-3">{{ $trip->title }}</h2>
                             <img class="img-fluid w-100 float-left mr-4 mb-2" src="{{ asset($trip->image) }}" alt="" style="width: 500px; height: 500px;">
-                            <p>{!! $trip->description !!}</p>
-                        </div>
+                            <h6 id="overview"><b>Highlights</b></h6>
+                        <p>{!! $trip->highlights !!}</p> 
+                            <h6 id="overview"><b>Overview</b></h6>
+                        <p>{!! $trip->overview !!}</p> 
+                        <h6 id="brief_itinerary"><b>Brief Itinerary</b></h6>
+                        <p>{!! $trip->brief_itinerary !!}</p>
+                        <h6 id="details_itinerary"><b>Details Itinerary</b></h6>
+                        <p>{!! $trip->details_itinerary  !!}</p>
+                        <h6 id="trip_includes"><b>Trip Include</b></h6>
+                        <p>{!! $trip->trip_includes  !!}</p>
+                        <h6 id="trip_excludes"><b>Trip Exclude</b></h6>
+                        <p>{!! $trip->trip_excludes  !!}</p>                        </div>
                     </div>
                     <div>
                     <div style="text-align: center;">
-    <a href="{{ route('bookings.create', ['trip_id' => $trip->id]) }}" class="btn btn-primary">Book This Trip</a>
+    <a href="{{ route('bookings.create', ['trip_id' => $trip->id]) }}" class="btn btn-primary btn-custom">Book This Trip</a>
 </div>
 
 
 
 </div>
 <br> <!-- Or use multiple <br> tags for larger spacing -->
-
+<div id="popup">
+  <h5><b>Overview</b></h5>
+</div>
+<div id="popup1">
+  <h5><b>Brief Itinerary</b></h5>
+</div>
+<div id="popup2">
+  <h5><b>Details Itinerary</b></h5>
+</div>
+<div id="popup3">
+  <h5><b>Trip Includes</b></h5>
+</div>
+<div id="popup4">
+  <h5><b>Trip Excludes</b></h5>
+</div>
 <div style="height: 20px;"></div> 
-<h1>Latest Trip Reviews</h1>
+<h1><b>Latest Trip Reviews</b></h1>
 
 @php
 $reviews = \App\Models\Review::where('trip_id', $trip->id)->get();
@@ -137,9 +166,22 @@ $reviews = \App\Models\Review::where('trip_id', $trip->id)->get();
     background-color: #f9f9f9;
     margin-top: 20px; /* Adjust as needed */
 }
+.fixed-tab {
+    position: fixed;
+    bottom: 400px;
+    width:100px;
+    right: 20px;
+    display: none; /* Hide the tab by default */
+    z-index: 1;
+}
+
+.fixed-tab .btn {
+    padding: 10px 20px;
+}
+
 </style>
 
-                <a href="{{ route('review.create', ['trip_id' => $trip->id]) }}" class="btn btn-primary">Review This Trip</a>
+                <a href="{{ route('review.create', ['trip_id' => $trip->id]) }}" class="btn btn-primary btn-custom">Review This Trip</a>
 
                 
                     <!-- Blog Detail End -->
@@ -188,7 +230,7 @@ $reviews = \App\Models\Review::where('trip_id', $trip->id)->get();
                             <div class="input-group">
                                 <input type="text" class="form-control p-4" placeholder="Keyword">
                                 <div class="input-group-append">
-                                    <span class="input-group-text bg-primary border-primary text-white"><i class="fa fa-search"></i></span>
+                                    <span class="input-group-text bg-primary border-primary text-white btn-custom"><i class="fa fa-search"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -227,7 +269,7 @@ $reviews = \App\Models\Review::where('trip_id', $trip->id)->get();
     <li class="mb-3"><a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i> <strong>Lifetime Deposit</strong></a></li>
     <li class="mb-3"><a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i> <strong>Responsible Tourism Practices</strong></a></li>
     <li class="mb-3"><a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i> <strong>24/7 Customer Care</strong></a></li>
-    <li class="mb-3"><a class="btn btn-primary" href="{{ route('why') }}">Learn More</a></li>
+    <li class="mb-3"><a class="btn btn-primary btn-custom"  href="{{ route('why') }}">Learn More</a></li>
 
 </ul>
 
@@ -309,12 +351,142 @@ $reviews = \App\Models\Review::where('trip_id', $trip->id)->get();
 </body>
 
 </html>
+<script>
+  function showPopup() {
+    var overviewSection = document.getElementById('overview');
+    var popup = document.getElementById('popup');
+ 
+    var rect = overviewSection.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      popup.style.display = 'block';
+    } else {
+      popup.style.display = 'none';
+    }
+    var overviewSection = document.getElementById('brief_itinerary');
+    var popup = document.getElementById('popup1');
+    var rect = overviewSection.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      popup.style.display = 'block';
+    } else {
+      popup.style.display = 'none';
+    }
+    var overviewSection = document.getElementById('details_itinerary');
+    var popup = document.getElementById('popup2');
+    var rect = overviewSection.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      popup.style.display = 'block';
+    } else {
+      popup.style.display = 'none';
+    }
+    var overviewSection = document.getElementById('trip_includes');
+    var popup = document.getElementById('popup3');
+    var rect = overviewSection.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      popup.style.display = 'block';
+    } else {
+      popup.style.display = 'none';
+    }
+    var overviewSection = document.getElementById('trip_excludes');
+    var popup = document.getElementById('popup4');
+    var rect = overviewSection.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      popup.style.display = 'block';
+    } else {
+      popup.style.display = 'none';
+    }
+  }
+
+  // Attach scroll event listener
+  window.addEventListener('scroll', showPopup);
+</script>
+
 <style>
  
  .responsive-image {
        max-width: 30%;
        height: auto;
    }
+   #popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #1a7b89;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+
+  #popup1 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #1a7b89;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+  #popup2 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #1a7b89;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+  #popup3 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #1a7b89;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+  #popup4 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #1a7b89;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+  #popup h5,
+  #popup1 h5,
+#popup2 h5,
+#popup3 h5,
+#popup4 h5 {
+    color: white; /* Set heading color to white */
+}
+.btn-custom {
+        background-color: #1a7b89 !important;
+    }
+    .h8 {
+        color: black;
+    }
+    .text-black
+    {
+        color: black;
+    }
+    .text-custom-color {
+        color: #c57b24;
+    }
 </style>
 
 

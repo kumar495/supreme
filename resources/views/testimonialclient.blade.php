@@ -8,10 +8,29 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
     <style>
         .img-area img {
-            width: 150px; /* Set the width of the image */
-            height: 200px; 
+            width: 200px; /* Set the width of the image */
+            height: 300px; 
             overflow: hidden;/* Maintain aspect ratio */
         }
+        .circular-image {
+    width: 70px; /* Adjust width as needed */
+    height: 70px; /* Adjust height as needed */
+    border-radius: 50%; /* Apply border-radius to create circular shape */
+    overflow: hidden; /* Hide any content that exceeds the border radius */
+}
+
+.short-description-container {
+    background-color: white; /* Example background color for the container */
+    padding: 10px; /* Example padding for the container */
+    border-radius: 5px; /* Example border radius for the container */
+    margin-top: 10px; /* Adjust top margin as needed */
+}
+
+.short-description {
+    color:black ; /* Example color for short description */
+    margin: 0; /* Reset margin to ensure it's contained within the container */
+}
+
     </style>
 </head>
 <body>
@@ -27,24 +46,29 @@
             </div>
         </div>
         <div class="testimonial-box">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="team-slider owl-carousel">
-                            @foreach($clients as $client)
-                                <div class="single-box text-center">
-                                    <div class="img-area"><img alt="" class="img-fluid move-animation" src="{{ $client->image }}"></div>
-                                    <div class="info-area">
-                                        <h4>{{ $client->name }}</h4>
-                                        <p>{{ $client->description }}</p>
-                                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="team-slider owl-carousel">
+                    @foreach($clients as $client)
+                        <div class="single-box text-center">
+                            <div class="img-area">
+                                <img alt="" class="img-fluid move-animation circular-image" src="{{ $client->image }}">
+                            </div>
+                            <div class="info-area">
+                                <h4>{{ $client->name }}</h4>
+                                <div class="short-description-container">
+                                    <p class="short-description">{{ $client->short }}</p>
                                 </div>
-                            @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>

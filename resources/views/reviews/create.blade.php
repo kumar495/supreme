@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <img src="{{ asset('images/contact1.png') }}" alt="Placeholder Image" class="mb-4 rounded img-fluid header-image">
+
     <title>Add Review</title>
     <style>
         /* Container styles */
-        .container {
-            max-width: 800px;
+        .container-review {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f9f9f9;
@@ -84,10 +86,15 @@
             border: 1px solid transparent;
             border-radius: 5px;
         }
+        .header-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container-review">
 
         <div class="pull-left mb-2">
             <h2>Add Review</h2>

@@ -34,7 +34,6 @@
             <thead>
                 <tr>
                     <th>Trip Name</th>
-                    <th>Highlights</th>
                     <th>Actual Price</th>
                     <th>Discount Price</th>
                     <th>Trip Day</th>
@@ -48,7 +47,6 @@
             @foreach ($trips as $key => $trip)
     <tr>
         <td>{{ $trip->name }}</td>
-        <td>{{ $trip->highlights }}</td>
         <td>${{ $trip->actual_price }}</td>
         <td>${{ $trip->discount_price }}</td>
         <td>{{ $trip->trip_day }}</td>

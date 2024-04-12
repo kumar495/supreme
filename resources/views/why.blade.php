@@ -3,6 +3,8 @@
 <title>@yield('metaTitle', 'Supreme Himalayas - Why US')</title>
     <meta name="description" content="@yield('metaDescription', 'Explore our exciting trips and discover the beauty of Nepal with Supreme Himalayas.')">
 @section('content')
+<img src="{{ asset('images/contact1.png') }}" alt="Placeholder Image" class="mb-4 rounded img-fluid header-image">
+
     <!-- Page Header Start -->
     <div class="container-about  py-5">
       
@@ -10,7 +12,7 @@
         <div class="row">
             <div class="col-lg-12">
 <center>
-                <h2 class="text-primary">WHY TRAVEL WITH SUPREME HIMALAYAS
+                <h2 class="text-primary"><u>WHY TRAVEL WITH SUPREME HIMALAYAS</u>
 </h2>
 </center>
                     <p class="text-dark">Embark on a journey of a lifetime with Supreme Himalayas, your trusted local travel expert since 2016. With a focus on providing unparalleled experiences in Nepal, Tibet, and Bhutan, we have been crafting unforgettable adventures for our clients over a decade. Led by Mr. Pradeep Giri, a seasoned adventurer and passionate travel enthusiast, our team is dedicated to delivering expert guidance, personalized itineraries, and exceptional service that ensures every trip is tailored to perfection.</p>
@@ -28,7 +30,7 @@
             
                 <div class="col-12">
                 <center>
-  <h2 class="text-primary">Our Services</h2>
+  <h2 class="text-primary"><u>OUR SERVICES</u></h2>
 </center>
 
 <p>
@@ -92,14 +94,19 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: white;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0);
             margin-top:50px;
         }
 
         body {
         font-family: "Times New Roman", Times, serif;
+    }
+    .header-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
 </style>
 

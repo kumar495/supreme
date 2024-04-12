@@ -8,7 +8,15 @@
 </head>
 
 <body>
-    <div class="container mt-2">
+<div class="header">
+        @include('layouts.topheader')
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        @include('layouts.sidebar')
+    </div>
+    <div class="container mt-1" style="max-width: 800px;">
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left mb-2">

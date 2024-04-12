@@ -28,11 +28,8 @@
             </div>
         </div>
 
-
-
         <form action="{{ route('trip.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
@@ -151,7 +148,60 @@
     </div>
 </div>
 
+<div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="overview">Overview:</label>
+                    <textarea name="overview" id="overview" class="form-control" placeholder="Overview" ></textarea>
+                    @error('overview')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="brief_itinerary">Brief Itinerary:</label>
+                    <textarea name="brief_itinerary" id="brief_itinerary" class="form-control" placeholder="Brief Itinerary" ></textarea>
+                    @error('brief_itinerary')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="details_itinerary">Details Itinerary:</label>
+                    <textarea name="details_itinerary" id="details_itinerary" class="form-control" placeholder="Details Itinerary" ></textarea>
+                    @error('details_itinerary')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="trip_includes">Trip Includes:</label>
+                    <textarea name="trip_includes" id="trip_includes" class="form-control" placeholder="Trip Includes" ></textarea>
+                    @error('trip_includes')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="trip_excludes">Trip Exclude:</label>
+                    <textarea name="trip_excludes" id="trip_excludes" class="form-control" placeholder="Trip Exclude" ></textarea>
+                    @error('trip_exclude')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
             <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -205,7 +255,53 @@
         .catch(error => {
             console.error(error);
         });
+        ClassicEditor
+        .create(document.querySelector('#overview'), {
+            ckfinder: {
+                uploadUrl: '{{ route('ckeditor.upload') }}?_token={{ csrf_token() }}'
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+        ClassicEditor
+        .create(document.querySelector('#brief_itinerary'), {
+            ckfinder: {
+                uploadUrl: '{{ route('ckeditor.upload') }}?_token={{ csrf_token() }}'
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+        ClassicEditor
+        .create(document.querySelector('#details_itinerary'), {
+            ckfinder: {
+                uploadUrl: '{{ route('ckeditor.upload') }}?_token={{ csrf_token() }}'
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+        ClassicEditor
+        .create(document.querySelector('#trip_includes'), {
+            ckfinder: {
+                uploadUrl: '{{ route('ckeditor.upload') }}?_token={{ csrf_token() }}'
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+        ClassicEditor
+        .create(document.querySelector('#trip_exclude'), {
+            ckfinder: {
+                uploadUrl: '{{ route('ckeditor.upload') }}?_token={{ csrf_token() }}'
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
 </script>
+
 <div class="footer">
         @include('layouts.sidebar')
     </div>

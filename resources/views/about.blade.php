@@ -3,25 +3,41 @@
 <title>@yield('metaTitle', 'Supreme Himalayas - About US')</title>
     <meta name="description" content="@yield('metaDescription', 'Explore our exciting trips and discover the beauty of Nepal with Supreme Himalayas.')">
 @section('content')
+<img src="{{ asset('images/contact1.png') }}" alt="Placeholder Image" class="mb-4 rounded img-fluid header-image">
+
     <!-- Page Header Start -->
     <div class="container-about  py-5">
       
     <div class="container py-5">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
 
-                <h2 class="text-primary">About Us</h2>
+            <center>
+            <h2 class="text-primary"><u>About Us</u></h2>
+            </center>
+
                     <p class="text-dark">Namaste and welcome to Supreme Himalayas Adventure, your ultimate travel companion in Nepal, where we blend a decade of expertise in the tourism industry to craft tailor-made holiday packages for all kinds of travelers. Established by seasoned professionals deeply rooted in Nepal's tourism landscape, Supreme Himalayas is dedicated to curating unforgettable experiences amidst the awe-inspiring beauty of the Himalayas.</p>
                 </div>
-            <div class="col-lg-6">
-            <h2 class="text-primary">Our Commitment</h2>
-                <p class="text-dark">At Supreme Himalayas, we are committed to providing unparalleled service and creating sustainable travel experiences that leave a positive impact on both our visitors and the communities they explore. With a focus on responsible and accessibility tourism, we strive to uphold the highest standards of safety, cultural immersion, and environmental conservation in every aspect of our operations.</p>
-            </div>
+           
+        </div>
+    </div>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-12">
+
+            <center>
+
+            <h2 class="text-primary"><u>Our Commitment</u></h2>
+            </center>
+
+                    <p class="text-dark">At Supreme Himalayas, we are committed to providing unparalleled service and creating sustainable travel experiences that leave a positive impact on both our visitors and the communities they explore. With a focus on responsible and accessibility tourism, we strive to uphold the highest standards of safety, cultural immersion, and environmental conservation in every aspect of our operations.</p>
+                </div>
+           
         </div>
     </div>
        
     </div>
-  
+
     <div class="container-about  py-2 text-dark">
         <div class="container">
             <div class="row">
@@ -29,7 +45,7 @@
             
                 <div class="col-12">
                 <center>
-  <h2 class="text-primary">Our Services</h2>
+  <h2 class="text-primary"><u>Our Services</u></h2>
 </center>
 
 <p>Discover lifetime experiences with Supreme Himalayas, where we design holiday packages as the interest of our clients. Whether you're an adventure enthusiast seeking thrills in the wilderness, a cultural experience into Nepal's rich heritage, or a family looking to create cherished memories together, we have something for everyone.</p>
@@ -68,7 +84,7 @@
             
                 <div class="col-12">
                 <center>
-  <h2 class="text-primary">Our Values</h2>
+  <h2 class="text-primary"><u>Our Values</u></h2>
 </center>
 
 <p>At Supreme Himalayas, our values serve as the cornerstone of our operations, guiding us in our commitment to excellence, sustainability, and social responsibility.</p>
@@ -101,7 +117,7 @@
             
                 <div class="col-12">
                 <center>
-  <h2 class="text-primary">Get in Touch</h2>
+  <h2 class="text-primary"><u>Get in Touch</u></h2>
 </center>
 <p>Explore the wonders of Nepal with Supreme Himalayas and embark on a journey of discovery and transformation. Contact us at <a href="mailto:info@supremehimalayas.com">info@supremehimalayas.com</a>  or click here to start planning your next adventure today.</p>
 <p>Together, let's embark on a voyage of exploration, enlightenment, and conservation as we traverse the majestic landscapes of the Himalayas with Supreme Himalayas Adventure by your side</p>
@@ -136,14 +152,19 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: white;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0);
             margin-top:50px;
         }
 
         body {
         font-family: "Times New Roman", Times, serif;
+    }
+    .header-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
 </style>
 

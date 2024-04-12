@@ -32,8 +32,13 @@ class TripRequest extends FormRequest
             'activity_id' => 'required|string',
             'description'=>'required|string',
             'arrive' => 'required|date_format:H:i',
-                        'departure' => 'required|date_format:H:i',
+            'departure' => 'required|date_format:H:i',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'overview' => 'nullable|string',
+            'brief_itinerary' => 'nullable|string',
+            'details_itinerary' => 'nullable|string',
+            'trip_includes' => 'nullable|string',
+            'trip_excludes' => 'nullable|string',
 
 
 

@@ -35,8 +35,8 @@
         </div>
     </div>
     <div class="text-center mt-5">
-        <button id="prevPageBtn" class="btn btn-primary mr-3" disabled>&lt; Prev</button>
-        <button id="nextPageBtn" class="btn btn-primary">Next &gt;</button>
+        <button id="prevPageBtn" class="btn btn-primary mr-3 btn-custom" disabled>&lt; Prev</button>
+        <button id="nextPageBtn" class="btn btn-primary btn-custom">Next &gt;</button>
     </div>
 </div>
 </div>
@@ -126,3 +126,18 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
+<style>
+    .btn-custom {
+        background-color: #1a7b89 !important;
+    }
+    .h8 {
+        color: black;
+    }
+    .text-black
+    {
+        color: black;
+    }
+    .text-custom-color {
+        color: #c57b24;
+    }
+</style>

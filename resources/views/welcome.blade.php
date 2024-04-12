@@ -13,24 +13,51 @@
     $blogs = \App\Models\Blog::all();
    @endphp
    
-   <br>
-<br>
 
+<style>
+    .btn-custom {
+        background-color: #1a7b89 !important;
+        border-color: #1a7b89 !important;
+        
+    }
+
+    /* Optionally, you can adjust the text color */
+    .btn-custom:hover {
+        color: #fff !important;
+    }
+
+@media (max-width: 576px) {
+  .carousel-caption h4 {
+    font-size: 18px;
+  }
+  .carousel-caption h1 {
+    font-size: 30px;
+  }
+}
+.btn-secondary
+{
+    background-color: #1a7b89;
+}
+.text-custom
+{
+color: black;
+}
+
+
+    </style>
  <!-- Carousel Start -->
  <div class="container-fluid p-0">
     <div id="header-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             @if($testimonials)
                 @foreach($testimonials as $testimonial)
-                    <div class="carousel-item @if($loop->first) active @endif" style="background-color: white;">
+                    <div class="carousel-item @if($loop->first) active @endif" style="position:relative;">
                         <!-- Apply CSS filter to make the image white -->
-                        <img class="w-100 testimonial-image"  src="{{ asset( $testimonial->image) }}" alt="Image">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 900px;">
-                                <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
-                                <h1 class="display-3 text-white mb-md-4">Let's Discover The World Together</h1>
-                                <a href="{{ route('allpackage') }}" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
-                            </div>
+                        <img class="w-100 testimonial-image" src="{{ asset( $testimonial->image) }}" alt="Image" 
+                        
+>
+<div class="carousel d-flex flex-column align-items-center justify-content-center overlay" style="opacity: 0.7;">
+                         
                         </div>
                     </div>
                 @endforeach
@@ -40,6 +67,7 @@
         </div>
     </div>
 </div>
+
 
     <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
         <div class="btn " style="width: 45px; height: 45px;">
@@ -58,12 +86,15 @@
 
 
 </style>
+<br>
+    <br>
+    <br>
+    @include('booking')
 
     <!-- Carousel End -->
 
 
     <!-- Booking Start -->
-    @include('booking')
 
     <!-- Booking End -->
 
@@ -91,55 +122,18 @@
                             </div>
                         </div>
                         
-                        <a href="{{ route('allpackage') }}" class="btn btn-primary mt-1">Book Now</a>
+<a href="{{ route('allpackage') }}" class="btn btn-secondary btn-custom mt-1 text-white">Book Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- About End -->
+   
 
 
-    <!-- Feature Start -->
-    <div class="container-fluid pb-5">
-        <div class="container pb-5">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="d-flex mb-4 mb-lg-0">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
-                            <i class="fa fa-2x fa-money-check-alt text-white"></i>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h5 class="">Competitive Pricing</h5>
-                            <p class="m-0">"Competitive Pricing" ensures rates in travel and tourism remain attractive compared to rival offerings.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="d-flex mb-4 mb-lg-0">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
-                            <i class="fa fa-2x fa-award text-white"></i>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h5 class="">Best Services</h5>
-                            <p class="m-0">"Superior Services" ensures unparalleled quality in travel and tourism compared to competitors' offerings.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="d-flex mb-4 mb-lg-0">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
-                            <i class="fa fa-2x fa-globe text-white"></i>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h5 class="">Worldwide Coverage</h5>
-                            <p class="m-0">"Global Coverage" guarantees comprehensive reach in travel and tourism services across international.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('Package.package')
+    
     <!-- Feature End -->
 
 
@@ -161,20 +155,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                    <img src="{{ asset('images/india.jpg') }}" alt="Payment Logo 1" class="responsive-image">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">India</h5>
-                            <span>Top Cities</span>
-                        </a>
-                    </div>
-                </div>
+          
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                     <img src="{{ asset('images/china.jpg') }}" alt="Payment Logo 1" class="responsive-image">
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">China</h5>
+                            <h5 class="text-white">Tibet</h5>
                             <span>Top Cities</span>
                         </a>
                     </div>
@@ -188,24 +174,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                    <img src="{{ asset('images/multi.jpg') }}" alt="Payment Logo 1" class="responsive-image">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">Multi Country Tours</h5>
-                            <span>Top Cities</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/destination-6.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white"></h5>
-                            <span>Top Cities</span>
-                        </a>
-                    </div>
-                </div>
+             
             </div>
         </div>
     </div>
@@ -220,44 +189,11 @@
     <!-- Destination Start -->
 
 
-    <!-- Service Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
-            <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Services</h6>
-                <h1>Tours & Travel Services</h1>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-route mx-auto mb-4"></i>
-                        <h5 class="mb-2">Travel Guide</h5>
-                        <p class="m-0">A Travel Guide provides essential information and tips for travelers, offering insights on destinations, attractions, accommodations, dining options, and local customs to enhance the travel experience.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
-                        <h5 class="mb-2">Ticket Booking</h5>
-                        <p class="m-0"> Ticket Booking facilitates the seamless reservation of tickets for various modes of transportation, events, or activities, ensuring convenient access and hassle-free travel arrangements.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-hotel mx-auto mb-4"></i>
-                        <h5 class="mb-2">Hotel Booking</h5>
-                        <p class="m-0">Hotel Booking streamlines the process of reserving accommodations, allowing travelers to secure their desired rooms and amenities at their chosen destinations, ensuring a comfortable.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
 
 
     <!-- Packages Start -->
         
-    @include('Package.package')
+
 
     <!-- Packages End -->
 
@@ -337,7 +273,7 @@
                                 </div>
                                 <div class="bg-white p-4" style="height: calc(100% - 200px);"> <!-- Subtracting image height from total container height -->
                                     <div class="d-flex mb-2">
-                                        <a class="text-primary text-uppercase text-decoration-none" href="#">{{ $blog->title}}</a>
+                                        <a class="text-primary text-uppercase text-decoration-none text-custom" href="#">{{ $blog->title}}</a>
                                         <span class="text-primary px-2">|</span>
                                     </div>
                                     <p class="mb-0">{{ $blog->hightlight }}</p>
@@ -356,7 +292,7 @@
     </div>
 </div>
 <div class="text-center">
-    <a href="{{ route('allblog') }}" class="btn btn-primary">View All Blogs</a>
+    <a href="{{ route('allblog') }}" class="btn btn-primary btn-custom">View All Blogs</a>
 </div>
 
 

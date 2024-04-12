@@ -23,7 +23,7 @@ $trips = \App\Models\Trip::latest()->get();
                             <div class="p-4">
                                 <div class="d-flex justify-content-between mb-3">
                                     <small class="m-0">
-                                        <i class="fa fa-map-marker-alt text-primary mr-2"></i>
+                                        <i class="fa fa-map-marker-alt text-primary  mr-2"></i>
                                         {{ $destination_name }}
                                     </small>
                                     <small class="m-0">
@@ -36,10 +36,10 @@ $trips = \App\Models\Trip::latest()->get();
                                 <a class="h8 text-decoration-none" href="#">
                                 {!! Illuminate\Support\Str::words($trip->name, 15, '...') !!}
                                 </a>
-                                <div class="mt-3">
-                                    <h6 class="text-primary mb-2">Activities</h6>
-                                    <p>{{ $activity_name }}</p>
-                                </div>
+                                <div class="mt-3 text-custom-color">
+    <h6 class="text-primary mb-2">Activities</h6>
+    <p>{{ $activity_name }}</p>
+</div>
 
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -47,7 +47,7 @@ $trips = \App\Models\Trip::latest()->get();
                                             <i class="fa fa-star text-primary mr-2"></i>5 <small></small>
                                         </h6>
                                         <h6 class="m-0">${{ ($trip->actual_price) - ($trip->discount_price )}}</h6>
-                                        <a href="{{ route('trip.details', ['id' => $trip->id]) }}" class="btn btn-primary">View Details</a> <!-- Changed position of the button -->
+                                        <a href="{{ route('trip.details', ['id' => $trip->id]) }}" class="btn btn-primary btn-custom">View Details</a>
                                     </div>
 
                                 </div>
@@ -62,8 +62,23 @@ $trips = \App\Models\Trip::latest()->get();
     @endif
 </div>
 <div class="text-center">
-    <a href="{{ route('allpackage') }}" class="btn btn-primary">View All Packages</a>
+    <a href="{{ route('allpackage') }}" class="btn btn-primary btn-custom">View All Packages</a>
 </div>
 
 
+<style>
+    .btn-custom {
+        background-color: #1a7b89 !important;
+    }
+    .h8 {
+        color: black;
+    }
+    .text-black
+    {
+        color: black;
+    }
+    .text-custom-color {
+        color: #c57b24;
+    }
+</style>
 

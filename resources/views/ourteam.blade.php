@@ -3,8 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <img src="{{ asset('images/contact1.png') }}" alt="Placeholder Image" class="mb-4 rounded img-fluid header-image">
+
     <title>Our Team</title>
     <link rel="stylesheet" href="{{ asset('css/team.css') }}">
 </head>
@@ -138,7 +141,7 @@ Prepare to be enchanted by Prajit's tales of adventure and the allure of Nepal. 
 
   }
     .team-member button {
-    background-color: green;
+    background-color: #1a7b89 ;
     color: white;
     margin-top:5px; /* Set text color to white for better contrast */
 }
@@ -187,9 +190,9 @@ Prepare to be enchanted by Prajit's tales of adventure and the allure of Nepal. 
         max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: white;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0);
             margin-top:30px;
     }
 
@@ -260,6 +263,11 @@ Prepare to be enchanted by Prajit's tales of adventure and the allure of Nepal. 
     .member-info h2,
     .member-info h6 {
         margin: 10px 0; /* Add margin for spacing */
+    }
+    .header-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
 </style>
 

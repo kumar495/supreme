@@ -38,7 +38,7 @@
             <textarea id="description" cols="30" rows="5" class="form-control" name="description" required></textarea >
         </div>
         <div class="form-group mb-0">
-            <input type="submit" value="Leave an Inquiry" class="btn btn-primary font-weight-semi-bold py-2 px-3">
+            <input type="submit" value="Leave an Inquiry" class="btn btn-primary font-weight-semi-bold py-2 px-3 btn-custom">
         </div>
     </form>
 </div>

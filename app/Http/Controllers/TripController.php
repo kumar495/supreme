@@ -76,6 +76,7 @@ return view('trips.create', compact('trips','activities' ,'destinations'));
      */
     public function store(TripRequest $request)
     {
+
         $request->validate([
             'name' => 'required|string|max:255',
             'highlights' => 'required|string',
@@ -89,6 +90,11 @@ return view('trips.create', compact('trips','activities' ,'destinations'));
             'arrive' => 'nullable|date_format:H:i',
             'departure' => 'nullable|date_format:H:i',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'overview' => 'nullable|string',
+            'brief_itinerary' => 'nullable|string',
+            'details_itinerary' => 'nullable|string',
+            'trip_includes' => 'nullable|string',
+            'trip_excludes' => 'nullable|string',
 
         ]);
     
@@ -104,8 +110,13 @@ return view('trips.create', compact('trips','activities' ,'destinations'));
         $trip->description = $request->description;
         $trip->arrive = $request->arrive;
         $trip->departure = $request->departure;
+        $trip->overview = $request->overview;
+        $trip->brief_itinerary = $request->brief_itinerary;
+        $trip->details_itinerary = $request->details_itinerary;
+        $trip->trip_includes = $request->trip_includes;
+        $trip->trip_excludes = $request->trip_excludes;
 
-    
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -174,6 +185,11 @@ return view('trips.edit', compact('trips','destination_name' ,'activity_name'));
             'arrive' => 'nullable|date_format:H:i',
             'departure' => 'nullable|date_format:H:i',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'overview' => 'nullable|string',
+    'brief_itinerary' => 'nullable|string',
+    'details_itinerary' => 'nullable|string',
+    'trip_includes' => 'nullable|string',
+    'trip_excludes' => 'nullable|string',
 
         ]);
 
@@ -192,6 +208,11 @@ return view('trips.edit', compact('trips','destination_name' ,'activity_name'));
     $trip->description = $request->description;
     $trip->arrive = $request->arrive;
     $trip->departure = $request->departure;
+    $trip->overview = $request->overview;
+    $trip->brief_itinerary = $request->brief_itinerary;
+    $trip->details_itinerary = $request->details_itinerary;
+    $trip->trip_includes = $request->trip_includes;
+    $trip->trip_excludes = $request->trip_excludes;
 
     if ($request->hasFile('image')) {
         $image = $request->file('image');

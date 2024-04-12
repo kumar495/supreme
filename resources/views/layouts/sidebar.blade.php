@@ -107,6 +107,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('client.index') }}" class="nav-link">
+                        <i class="fa-solid fa-comments"></i>                                                    <p>
+                                 Review From Client
+                                <span class="right badge badge-info"></span>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('doubts.index') }}" class="nav-link">
                         <i class="fa fa-question"></i>                                                    <p>
                                  Inquery Show

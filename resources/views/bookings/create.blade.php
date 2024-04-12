@@ -6,8 +6,8 @@
     <title>Add Client Review</title>
        <style>
     /* Container styles */
-    .container {
-        max-width: 400px; /* Adjust this value to your desired width */
+    .container-booking {
+        max-width: 1200px; /* Adjust this value to your desired width */
         margin: 0 auto;
         padding: 20px;
         background-color: #f9f9f9;
@@ -77,7 +77,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="container-booking">
         <div class="row">
         <div class="center">
 </div>
@@ -226,6 +226,8 @@
 <div class="text-center">
     <a href="{{ route('allblog') }}" class="btn btn-primary">View All Blogs</a>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 @include('footer')
 <script>
     document.addEventListener("DOMContentLoaded", function() {
